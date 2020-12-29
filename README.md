@@ -14,7 +14,6 @@ npm install ts-node-cooking-pathogens --save
 ## Usage
 
 ```ts
-import { Inactivation } from 'node_modules/ts-node-cooking-pathogens/build/Model/Inactivation';
 import { Food } from 'node_modules/ts-node-cooking-pathogens/build/Model/Food';
 import { meanInactivations } from 'node_modules/ts-node-cooking-pathogens/build/Data/InactivationValues';
 // tslint:disable: no-magic-numbers
