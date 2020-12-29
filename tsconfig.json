@@ -72,10 +72,6 @@
     "rewriteTsconfig": true
   },
   "plugins": [{
-    "name": "tslint-language-service",
-    "alwaysShowRuleFailuresAsWarnings": true,
-    "ignoreDefinitionFiles": false,
-    "configFile": "tslint.json",
-    "disableNoUnusedVariableRule": false
+    "name": "typescript-eslint-language-service"
   }]
 }

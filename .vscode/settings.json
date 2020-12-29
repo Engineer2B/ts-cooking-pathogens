@@ -6,5 +6,8 @@
 		}
 	},
 	"workbench.colorTheme": "Dracula",
-	"workbench.iconTheme": "vscode-icons"
+	"workbench.iconTheme": "vscode-icons",
+	"eslint.workingDirectories": [{ "mode": "location" }],
+	"[typescript]": { "editor.defaultFormatter": "dbaeumer.vscode-eslint" },
+	"eslint.probe" : ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue"]
 }

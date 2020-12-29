@@ -16,6 +16,9 @@ export class Inactivation {
 	 */
 	public Z!: number;
 
+	protected constructor() {
+	}
+
 	public static New(tRef: number, z: number, logDRef: number): Inactivation {
 		const obj = new Inactivation();
 		obj.TRef = tRef;
@@ -23,9 +26,6 @@ export class Inactivation {
 		obj.Z = z;
 
 		return obj;
-	}
-
-	protected constructor() {
 	}
 
 	/**
@@ -69,8 +69,6 @@ export class Inactivation {
 	 * @returns {number} Log10 of the units of bacterium after applying the treatment.
 	 */
 	public CalculateLog10Reductions(temperatures: number[], times: number[], initialValue: number = 1): number {
-		return -Math.log10(temperatures.reduce((dTot: number, T: number, iT: number) => {
-			return this.CalculateReduction(dTot, T, times[iT]);
-		}, initialValue));
+		return -Math.log10(temperatures.reduce((dTot: number, T: number, iT: number) => this.CalculateReduction(dTot, T, times[iT]), initialValue));
 	}
 }

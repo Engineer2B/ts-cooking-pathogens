@@ -1,7 +1,5 @@
 import { Food } from './Model/Food';
 import { meanInactivations } from './Data/InactivationValues';
-// tslint:disable: no-magic-numbers
-// tslint:disable: no-console
 
 const meanFood = Food.New(meanInactivations);
 const leastReduced = meanFood.CalculateLeastReduced([70,140], [3*60,5/60]);

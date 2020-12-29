@@ -1,4 +1,3 @@
-// tslint:disable: no-magic-numbers
 import { Inactivation } from './Inactivation';
 
 export type TReduction = {
@@ -11,7 +10,7 @@ export class Food {
 		return this.inactivations;
 	}
 
-	protected inactivations!: { [index: string]: Inactivation; };
+	protected inactivations!: { [index: string]: Inactivation };
 
 	protected constructor() {
 	}
@@ -32,12 +31,10 @@ export class Food {
 	}
 
 	public CalculateReductions(temperatures: number[], times: number[]): TReduction[] {
-		return Object.keys(this.Inactivations).map((keyName: string) => {
-			return {
-				BacteriumName: keyName,
-				Reduction: this.Inactivations[keyName].CalculateLog10Reductions(temperatures, times)
-			};
-		});
+		return Object.keys(this.Inactivations).map((keyName: string) => ({
+			BacteriumName: keyName,
+			Reduction: this.Inactivations[keyName].CalculateLog10Reductions(temperatures, times)
+		}));
 	}
 
 	protected reduceInactivations<T>(temperatures: number[], times: number[], comperatorFn: (currentN: number, newN: number) => boolean, initialValue: number): TReduction {

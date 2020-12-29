@@ -12,8 +12,8 @@
     "version": "git add -A src",
     "postversion": "git push && git push --tags",
     "lint": "npm run lint-src && npm run lint-test",
-    "lint-test": "tslint -p test/tsconfig.json",
-    "lint-src": "tslint -p src/tsconfig.json"
+    "lint-test": "eslint -c .eslintrc.js --ext .ts test",
+    "lint-src": "eslint -c .eslintrc.js --ext .ts src"
   },
   "keywords": [
     "util",
@@ -27,10 +27,17 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
     "jest": "^26.6.3",
     "ts-jest": "^26.4.4",
     "tslint": "^6.1.3",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "typescript-eslint-language-service": "^4.1.2"
   },
   "files": [
     "build/**/*"
@@ -43,11 +50,5 @@
     "url": "https://github.com/Engineer2B/ts-cooking-pathogens/issues",
     "email": "borisbreuer1@gmail.com"
   },
-  "homepage": "https://github.com/Engineer2B/ts-cooking-pathogens#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "dependencies": {
-    "ts-common-tools": "^2.0.1"
-  }
+  "homepage": "https://github.com/Engineer2B/ts-cooking-pathogens#readme"
 }
