@@ -1,4 +1,4 @@
-# ts-node-cooking-pathogens
+# ts-cooking-pathogens
 
 This package contains classes to calculate units of common pathogens present after a procedure according to the D/z model and data from (van Asselt E D & Zwietering M H, 2006).
 It was created by following [this guide](https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c).
@@ -8,14 +8,14 @@ It was created by following [this guide](https://itnext.io/step-by-step-building
 Install from npm:
 
 ```powershell
-npm install ts-node-cooking-pathogens --save
+npm install ts-cooking-pathogens --save
 ```
 
 ## Usage
 
 ```ts
-import { Food } from 'node_modules/ts-node-cooking-pathogens/build/Model/Food';
-import { meanInactivations } from 'node_modules/ts-node-cooking-pathogens/build/Data/InactivationValues';
+import { Food } from 'node_modules/ts-cooking-pathogens/build/Model/Food';
+import { meanInactivations } from 'node_modules/ts-cooking-pathogens/build/Data/InactivationValues';
 // tslint:disable: no-magic-numbers
 
 const meanFood = Food.New(meanInactivations);
@@ -31,7 +31,7 @@ console.log(Math.log10(10 ** (((meanInactivations.ClostridiumBotulinumNonProteol
 
 More info on how to consume this package [here](https://github.com/microsoft/TypeScript/issues/8305#issuecomment-254017287). 
 
-Check [github](https://github.com/Engineer2B/ts-node-cooking-pathogens/tree/master/src) for available classes.
+Check [github](https://github.com/Engineer2B/ts-cooking-pathogens/tree/master/src) for available classes.
 
 ## License
 
