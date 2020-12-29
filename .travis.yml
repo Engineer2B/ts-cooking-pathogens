@@ -1,5 +1,7 @@
 name: CI
 
+language: node_js
+
 on:
   push:
     branches:
