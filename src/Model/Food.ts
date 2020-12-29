@@ -36,7 +36,7 @@ export class Food {
 			return {
 				BacteriumName: keyName,
 				Reduction: this.Inactivations[keyName].CalculateLog10Reductions(temperatures, times)
-			}
+			};
 		});
 	}
 

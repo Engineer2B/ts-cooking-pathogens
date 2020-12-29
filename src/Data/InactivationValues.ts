@@ -1,4 +1,5 @@
 import { Inactivation } from '../Model/Inactivation';
+// tslint:disable: no-magic-numbers
 
 const meanInactivations = {
 	BacillusCereus: Inactivation.New(120, 12.8, -1.38),
@@ -23,4 +24,4 @@ const meanInactivations = {
 	YersiniaEnterocolitica: Inactivation.New(70, 6.2, -1.80)
 };
 
-export { meanInactivations }
+export { meanInactivations };
