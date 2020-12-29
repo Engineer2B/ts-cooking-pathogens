@@ -1,0 +1,21 @@
+{
+	"version": "0.2.0",
+	// List of configurations. Add new configurations or edit existing ones.
+	// ONLY "node" and "mono" are supported, change "type" to switch.
+	"configurations": [{
+			"name": "Food 🦠",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}\\src\\Main.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": null,
+			"runtimeArgs": [],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"sourceMaps": true
+		}
+	]
+}
