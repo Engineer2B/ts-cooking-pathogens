@@ -1,6 +1,12 @@
 name: CI
-
+os: windows
 language: node_js
+node_js:
+  - 14
+
+cache:
+    directories:
+        - node_modules
 
 on:
   push:
@@ -10,24 +16,16 @@ on:
     branches:
       - master
 
-jobs:
-  build:
-    os: windows
+steps:
+  - name: Clean install
+    run: npm ci
 
-    strategy:
-      matrix:
-        node-version: [14.x]
+  # Re: https://github.com/actions/setup-node/pull/125
+  - name: Register Problem Matcher for TSC
+    run: echo "##[add-matcher]tsc.json"
 
-    steps:
-    - name: Clean install
-      run: npm ci
+  - name: Tests
+    run:  npm test -- --no-lint
 
-    # Re: https://github.com/actions/setup-node/pull/125
-    - name: Register Problem Matcher for TSC
-      run: echo "##[add-matcher]tsc.json"
-
-    - name: Tests
-      run:  npm test -- --no-lint
-
-    - name: Linter
-      run:  npm run lint
+  - name: Linter
+    run:  npm run lint
