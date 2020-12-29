@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    os: windows
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Clean install
+      run: npm ci
+
+    # Re: https://github.com/actions/setup-node/pull/125
+    - name: Register Problem Matcher for TSC
+      run: echo "##[add-matcher]tsc.json"
+
+    - name: Tests
+      run:  npm test -- --no-lint
+
+    - name: Linter
+      run:  npm run lint
