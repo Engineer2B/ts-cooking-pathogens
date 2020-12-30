@@ -1,5 +1,7 @@
 # ts-cooking-pathogens
 
+[![Build Status](https://www.travis-ci.com/Engineer2B/ts-cooking-pathogens.svg?branch=main)](https://www.travis-ci.com/Engineer2B/ts-cooking-pathogens)
+
 This package contains classes to calculate units of common pathogens present after a procedure according to the D/z model and data from (van Asselt E D & Zwietering M H, 2006).
 It was created by following [this guide](https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c).
 

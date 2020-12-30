@@ -1,4 +1,3 @@
-name: CI
 os: windows
 language: node_js
 node_js:
@@ -7,17 +6,6 @@ node_js:
 cache:
     directories:
         - node_modules
-
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-
-before_script:
-  - echo "##[add-matcher]tsc.json"
 
 script:
   - npm run lint
