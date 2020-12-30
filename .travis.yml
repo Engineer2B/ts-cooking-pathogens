@@ -16,16 +16,14 @@ on:
     branches:
       - master
 
-steps:
-  - name: Clean install
-    run: npm ci
-
-  # Re: https://github.com/actions/setup-node/pull/125
-  - name: Register Problem Matcher for TSC
-    run: echo "##[add-matcher]tsc.json"
-
-  - name: Tests
-    run:  npm test -- --no-lint
-
-  - name: Linter
-    run:  npm run lint
+jobs:
+  include:
+    - stage: "Clean install"
+      run: npm ci
+    # Re: https://github.com/actions/setup-node/pull/125
+    - stage: Register problem Matcher for TSC
+      run: echo "##[add-matcher]tsc.json"
+    - stage: Linter
+      run: npm run lint
+    - stage: Tests
+      run: npm test
