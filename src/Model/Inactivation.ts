@@ -31,7 +31,7 @@ export class Inactivation {
 	/**
 	 * Calculate the log10 D value.
 	 * D equals the time taken to decrease the population by one log10 unit.
-	 * @param {number} tIn The reference temperature [deg C].
+	 * @param {number} tIn The desired temperature [deg C].
 	 * @returns Log10 of the time taken to decrease the population by one log10 unit.
 	 */
 	public CalculateLog10D(tIn: number): number {
@@ -41,7 +41,7 @@ export class Inactivation {
 	/**
 	 * Calculate the D value.
 	 * The time taken to decrease the population by one log10 unit.
-	 * @param {number} tIn The reference temperature [deg C].
+	 * @param {number} tIn The desired temperature [deg C].
 	 * @returns The time taken to decrease the population by one log10 unit.
 	 */
 	public CalculateD(tIn: number): number {
@@ -49,11 +49,10 @@ export class Inactivation {
 	}
 
 	/**
-	 * Calculate units of bacterium after
-	 * applying a temperature for a time.
+	 * Calculate units of bacterium after applying a temperature for a time.
 	 * @param {number} initialValue Initial units of bacterium.
 	 * @param {number} temperature Treatment temperature [deg C].
-	 * @param {number} time Treatment time [s].
+	 * @param {number} time Treatment time [min].
 	 * @returns {number} The units of bacterium after applying the treatment.
 	 */
 	public CalculateReduction(initialValue: number, temperature: number, time: number): number {
@@ -61,10 +60,10 @@ export class Inactivation {
 	}
 
 	/**
-	 * Calculate units of bacterium after
-	 * applying constant temperatures for a various times.
+	 * Calculate units of bacterium after applying a sequence of constant temperatures for a
+	 * sequence of times.
 	 * @param {number[]} temperatures Treatment temperatures [deg C].
-	 * @param {number[]} times Treatment time [s].
+	 * @param {number[]} times Treatment times [min].
 	 * @param {number} [initialValue=1] Initial units of bacterium.
 	 * @returns {number} Log10 of the units of bacterium after applying the treatment.
 	 */
