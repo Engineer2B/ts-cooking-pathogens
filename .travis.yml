@@ -1,7 +1,7 @@
 os: windows
 language: node_js
 node_js:
-  - 14
+  - lts
 
 cache:
     directories:
@@ -10,6 +10,13 @@ cache:
 script:
   - npm run lint
   - npm run test
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_DEPLOYMENT_KEY}" > .npmrc
 
-after_success:
-  - npm publish
+deploy:
+  provider: npm
+  email: '$NPM_EMAIL'
+  api_key: '$NPM_DEPLOYMENT_KEY'
+  edge: true # opt in to dpl v2
+  skip_cleanup: true
+  on:
+    tags: true
