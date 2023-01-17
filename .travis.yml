@@ -29,7 +29,6 @@ jobs:
         - echo "npm build started ..."
         - npm run build
         - echo "npm build finished."
-        - echo "https://registry.npmjs.org/:_authToken=$NPM_DEPLOYMENT_KEY" > .npmrc
       deploy:
         provider: npm
         email: '$NPM_EMAIL'
@@ -37,6 +36,5 @@ jobs:
         skip_cleanup: true
         with:
           persist-credentials: false
-        edge: true
         on:
           tags: true
