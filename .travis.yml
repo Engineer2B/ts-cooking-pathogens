@@ -37,5 +37,7 @@ jobs:
         edge:
           source: 'native-api/dpl'
           branch: 'fix_eaccess'
+        with:
+          persist-credentials: false
         on:
           tags: true
