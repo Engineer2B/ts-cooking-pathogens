@@ -25,19 +25,9 @@ jobs:
           - npm run coverage
     - stage: npm release
       if: tag =~ ^v\d+\.\d+\.\d+$
-      before_deploy:
+      script:
         - echo "npm build started ..."
         - npm run build
         - echo "npm build finished."
-      deploy:
-        provider: npm
-        email: '$NPM_EMAIL'
-        api_key: '$NPM_DEPLOYMENT_KEY'
-        skip_cleanup: true
-        edge:
-          source: 'native-api/dpl'
-          branch: 'fix_eaccess'
-        with:
-          persist-credentials: false
-        on:
-          tags: true
+        - echo "https://registry.npmjs.org/:_authToken=$NPM_DEPLOYMENT_KEY" > .npmrc
+        - npm publish
