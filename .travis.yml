@@ -34,7 +34,8 @@ jobs:
         email: '$NPM_EMAIL'
         api_key: '$NPM_DEPLOYMENT_KEY'
         skip_cleanup: true
-        with:
-          persist-credentials: false
+        edge:
+          source: 'native-api/dpl'
+          branch: 'fix_eaccess'
         on:
           tags: true
