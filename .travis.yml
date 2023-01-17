@@ -2,19 +2,33 @@ os: windows
 language: node_js
 node_js:
   - lts
-
+install:
+  - npm install
 cache:
     directories:
         - node_modules
 
 jobs:
   include:
-    - stage: Lint and test
+    - stage: lint
       script:
+        - node --version
+        - npm --version
+        - echo "Linting started ..."
         - npm run lint
-        - npm run test
+    - stage: test
+      script:
+        - echo "Testing started ..."
+        - npm test
+        - echo "Testing finished."
+      after_success:
+          - npm run coverage
     - stage: npm release
-      script: npm run build
+      if: tag =~ ^v\d+\.\d+\.\d+$
+      script:
+        - echo "npm build started ..."
+        - npm run build
+        - echo "npm build finished."
       deploy:
         provider: npm
         email: '$NPM_EMAIL'
